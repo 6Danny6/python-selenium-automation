@@ -5,9 +5,12 @@ from behave import given, when, then
 def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
 
-@when('Type email on Sign-In')
+@when('Click On Sign-In Account')
+def click_Sign_In_Account (contex):
+    contex.driver.find_element(By.XPATH,"//a[@id='nav-orders']").click()
+
+@when('Type email on Sign-In Page')
 def type_email(context):
-    context.driver.find_element(By.XPATH,"//a[@id='nav-orders']").click()
     context.driver.find_element(By.XPATH,"//input[@type='email']").send_keys("Limitless369@outlook.com")
 
 @then('Show email on Sign-In')
